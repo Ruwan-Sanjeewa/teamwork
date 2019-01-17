@@ -48,16 +48,26 @@
             <br><br><br>
             <table class="table table-hover" id="table1">
                 <tbody>
-                    <tr>
-                        <th>Customer ID</th>
-                        <th>Customer Name</th>
-                        <th>Customer Address</th>
-                       
-
-
-                    </tr>
+                    <thead>
+                            <tr>
+                                    <th>Customer ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Customer Address</th>
+                                   
+            
+            
+                                </tr>
+                    </thead>
+                    
 
                 </tbody>
+                <tfoot>
+                        <tr>
+                        <td colspan="5" class="center" style="text-align:center;">There are no records right now !</td>
+                        </tr>
+                </tfoot>
+                    
+                    
             </table>
 
 
@@ -86,7 +96,7 @@
 
    
     $("table tbody").append("<tr><td id='cusId'>" + $("#customerId").val() + "</td><td id='cusName'>" + $("#customerName").val() + "</td><td id='cusAddress'>" + $("#customerAddress").val() + "</td> <td><img src='image/recyclebin.png' width='48px' alt='delete'></td></tr>"); 
-      
+    showHideTableFooter();
     $("#customerId").val("");
     $("#customerName").val("");
     $("#customerAddress").val("");
@@ -106,12 +116,11 @@
      });
 
      $("#delete").click(function(){
-        $("#table1 tbody tr").find("td:nth-child(1)").text("");
-        $("#table1 tbody tr").find("td:nth-child(2)").text("");
-       $("#table1 tbody tr").find("td:nth-child(3)").text("");
+        $("#table1 tbody tr").remove();
+       
         console.log("customerId");
         
-
+        showHideTableFooter();
         
 
    
@@ -120,6 +129,17 @@
 
       
        });
+
+       function showHideTableFooter(){
+            var rowCount = $("table tbody tr").length;
+            if (rowCount > 1){
+                $("table tfoot").hide();
+            }else{
+                $("table tfoot").show();
+            }
+        }
+        
+
 
 
 
