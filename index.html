@@ -65,7 +65,17 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
        
-       
+       $("#customerId").attr("disabled",'');
+       $("#customerName").attr("disabled",'');
+       $("#customerAddress").attr("disabled",'');
+
+       $("#newCustomer").click(function(){
+
+        $("#customerId").removeAttr("disabled");
+       $("#customerName").removeAttr("disabled");
+       $("#customerAddress").removeAttr("disabled");
+       });
+
        $("#save").click(function(){
 
     // var id= $("#customerId").val();
