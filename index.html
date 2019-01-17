@@ -14,6 +14,7 @@
         <div class="card-footer">
             <button type="button" class="btn btn-success" id="newCustomer"> <i class="fas fa-plus"></i> NEW
                 Customer</button>
+               
         </div>
 
 
@@ -42,9 +43,10 @@
 
         <div class="card-footer">
             <button type="button" class="btn btn-primary" id="save">Save</button>
-            <button  type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-danger"  id="delete">Delete</button>
+
             <br><br><br>
-            <table class="table table-hover">
+            <table class="table table-hover" id="table1">
                 <tbody>
                     <tr>
                         <th>Customer ID</th>
@@ -78,12 +80,50 @@
 
        $("#save").click(function(){
 
- 
-    $("table tbody").append("<tr><td id='cusId'>" + $("#customerId").val() + "</td><td id='cusName'>" + $("#customerName").val() + "</td><td id='cusAddress'>" + $("#customerAddress").val() + "</td> </tr>"); 
-       });
+    // var id= $("#customerId").val();
+    // var name=$("#customerName").val();
+    // var address=$("#customerAddress").val();
+
+   
+    $("table tbody").append("<tr><td id='cusId'>" + $("#customerId").val() + "</td><td id='cusName'>" + $("#customerName").val() + "</td><td id='cusAddress'>" + $("#customerAddress").val() + "</td> <td><img src='image/recyclebin.png' width='48px' alt='delete'></td></tr>"); 
+      
+    $("#customerId").val("");
+    $("#customerName").val("");
+    $("#customerAddress").val("");
+
+    $("#table1 tbody tr").click(function(){
+        var customerId=$(this).find("td:nth-child(1)").text();
+        var customerName=$(this).find("td:nth-child(2)").text();
+        var customerAddress=$(this).find("td:nth-child(3)").text();
+        console.log(customerId);
+        $("#customerId").val(customerId);
+        $("#customerName").val(customerName);
+        $("#customerAddress").val(customerAddress);
+
+        
+
+   
+     });
+
+     $("#delete").click(function(){
+        $("#table1 tbody tr").find("td:nth-child(1)").text("");
+        $("#table1 tbody tr").find("td:nth-child(2)").text("");
+       $("#table1 tbody tr").find("td:nth-child(3)").text("");
+        console.log("customerId");
+        
+
+        
+
+   
+     });
+
 
       
+       });
 
+
+
+       
 
     </script>
 
