@@ -42,7 +42,7 @@
 
         <div class="card-footer">
             <button type="button" class="btn btn-primary" id="save">Save</button>
-
+            <button  type="button" class="btn btn-danger">Delete</button>
             <br><br><br>
             <table class="table table-hover">
                 <tbody>
@@ -50,7 +50,7 @@
                         <th>Customer ID</th>
                         <th>Customer Name</th>
                         <th>Customer Address</th>
-                        <th></th>
+                       
 
 
                     </tr>
@@ -78,13 +78,13 @@
 
        $("#save").click(function(){
 
-    // var id= $("#customerId").val();
-    // var name=$("#customerName").val();
-    // var address=$("#customerAddress").val();
-
-   
-    $("table tbody").append("<tr><td id='cusId'>" + $("#customerId").val() + "</td><td id='cusName'>" + $("#customerName").val() + "</td><td id='cusAddress'>" + $("#customerAddress").val() + "</td> <td><img src='image/recyclebin.png' width='48px' alt='delete'></td></tr>"); 
+ 
+    $("table tbody").append("<tr><td id='cusId'>" + $("#customerId").val() + "</td><td id='cusName'>" + $("#customerName").val() + "</td><td id='cusAddress'>" + $("#customerAddress").val() + "</td> </tr>"); 
        });
+
+      
+
+
     </script>
 
 
